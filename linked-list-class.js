@@ -1,3 +1,5 @@
+const _Node = require('./node-class')
+
 class LinkedList {
     constructor() {
         this.head = null;
@@ -9,7 +11,6 @@ class LinkedList {
         if (this.head === null) {
             this.insertFirst(item);
         }
-        // This is the area of my confusion (.next, tempNode, etc.) 
         else {
             let tempNode = this.head;
             while (tempNode.next !== null) {
@@ -54,6 +55,31 @@ class LinkedList {
         }
         previousNode.next = currNode.next;
     }
+    /*
+    insertBefore(item) {
+        if (this.head === item) {
+            this.insertFirst(item);
+        }
+      
+        let currNode = this.head;
+        let prevNode = this.head;
+
+        if (!this.head) {
+            return null;
+        }
+        while (currNode.value !== item) {
+            if (currNode.next === null) {
+                return null
+            }
+            else {
+                prevNode = currNode;          
+                currNode = currNode.next;  
+            }
+        }
+        prevNode.next = new _Node(item, next)
+        prevNode.next.next = currNode;
+   }
+   */
 }
 
-module.exports = _Node
+module.exports = LinkedList;
